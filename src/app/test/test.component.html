@@ -1,0 +1,31 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+  <div class="header">
+    <img src="../assets/images/dp2.png"> <p>Jane</p>
+    <span class="flex-spacer"></span>
+    <button id="but" (click)="refresh()"><i class="fa fa-trash"></i></button>
+</div>
+  <div class="card" #scrollframe>
+    <div class="card-body">
+      <h6>Messages to this chat and calls are now secured with end-to-end encryption.</h6>
+      <div *ngFor="let i of array" #msg>
+        <p2 *ngIf="i[i.length-1]=='@' && j==-6" id="right">
+          {{i | slice: 0:-6}} <span>{{i | slice: -6:-1}}</span>
+        </p2>
+        <p2 *ngIf="i[i.length-1]!='@'" style="background-color: #ece5dd">
+          {{i| slice:0:-5}} <span>{{i | slice: -5}}</span>
+        </p2>
+      </div>
+    </div>
+  </div>
+  <div id="sender">
+    <input type="text" value="bobby" id="hisid" #hisid (keyup.enter)="send($event)" [(ngModel)]="value" placeholder="Type a message">
+    <button (click)="fireevent(hisid.value)"><i class="fa fa-paper-plane"></i></button>
+  </div>
+</div>
